@@ -15,414 +15,467 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📺</text></svg>">
 
 <style>
-
 /* ==================================================
-   VARIÁVEIS CSS
+   VARIÁVEIS E RESET
 ================================================== */
 
-:root{
-    --preto:#000000;
-    --preto-sec:#0b0b0b;
-    --preto-card:#050505;
-    --vermelho:#b30000;
-    --vermelho-hover:#ff0000;
-    --dourado:#d4af37;
-    --dourado-claro:#ffd700;
-    --texto:#ffffff;
-    --texto-sec:#cccccc;
-    --texto-terciario:#999999;
-    --verde-whats:#25d366;
-    --verde-whats-hover:#1ebe5d;
-    --border-card:rgba(255,0,0,.45);
-    --shadow-card:rgba(255,0,0,.35);
-    --shadow-card-hover:rgba(255,0,0,.18);
+:root {
+    --preto: #000000;
+    --preto-sec: #0b0b0b;
+    --preto-card: #050505;
+    --vermelho: #b30000;
+    --vermelho-hover: #ff0000;
+    --dourado: #d4af37;
+    --dourado-claro: #ffd700;
+    --texto: #ffffff;
+    --texto-sec: #cccccc;
+    --texto-terciario: #999999;
+    --verde-whats: #25d366;
+    --verde-whats-hover: #1ebe5d;
+    --border-card: rgba(255, 0, 0, 0.45);
+    --shadow-card: rgba(255, 0, 0, 0.35);
 }
 
-/* ==================================================
-   RESET E BASE
-================================================== */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+html {
+    background: var(--preto);
+    overflow-x: hidden;
+    width: 100%;
+    scroll-behavior: smooth;
 }
 
-body{
-    background:var(--preto);
-    color:var(--texto);
-    line-height:1.6;
-    overflow-x:hidden;
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-/* ==================================================
-   ESTRUTURA
-================================================== */
-
-section{
-    width:100%;
-    padding:60px 16px;
-    position:relative;
-}
-
-.container{
-    max-width:1200px;
-    margin:auto;
-    text-align:center;
+body {
+    background: var(--preto);
+    color: var(--texto);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 /* ==================================================
-   TIPOGRAFIA
+   CONTAINER
 ================================================== */
 
-.titulo{
-    font-size:clamp(1.8rem,4vw,2.6rem);
-    margin-bottom:20px;
-    font-weight:700;
-    animation:fadeInUp 0.8s ease;
-}
-
-.titulo span{
-    color:var(--dourado);
-    background:linear-gradient(135deg, var(--dourado), var(--dourado-claro));
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    background-clip:text;
-}
-
-.subtexto{
-    max-width:900px;
-    margin:0 auto;
-    font-size:clamp(1rem,2.5vw,1.1rem);
-    color:var(--texto-sec);
-    animation:fadeInUp 0.8s ease 0.2s both;
-}
-
-/* ==================================================
-   ANIMAÇÕES
-================================================== */
-
-@keyframes fadeInUp{
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-@keyframes fadeIn{
-    from{ opacity:0; }
-    to{ opacity:1; }
-}
-
-@keyframes scaleIn{
-    from{
-        opacity:0;
-        transform:scale(0.9);
-    }
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+    text-align: center;
 }
 
 /* ==================================================
    LOGO
 ================================================== */
 
-.logo{
-    padding:40px 16px;
-    animation:fadeIn 1s ease;
+.logo-section {
+    padding: 60px 16px 40px;
+    text-align: center;
 }
 
-.logo img{
-    width:190px;
-    max-width:90%;
-    filter:drop-shadow(0 0 20px rgba(212,175,55,0.3));
-    transition:transform 0.3s ease;
+.logo-img {
+    width: 220px;
+    max-width: 90%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.4));
+    transition: transform 0.3s ease;
 }
 
-.logo img:hover{
-    transform:scale(1.05);
-}
-
-/* ==================================================
-   SEÇÃO DE DISPOSITIVOS
-================================================== */
-
-.dispositivos-section{
-    background:var(--preto);
-    text-align:center;
-}
-
-.dispositivos-container{
-    max-width:800px;
-    margin:40px auto 0;
-    display:flex;
-    gap:30px;
-    justify-content:center;
-    flex-wrap:wrap;
-}
-
-.dispositivo-card{
-    background:linear-gradient(180deg, var(--preto-sec), var(--preto-card));
-    border:2px solid var(--border-card);
-    border-radius:18px;
-    padding:32px 24px;
-    text-align:center;
-    transition:all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    position:relative;
-    overflow:hidden;
-    cursor:pointer;
-    min-width:280px;
-    flex:1;
-}
-
-.dispositivo-card::before{
-    content:'';
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:linear-gradient(135deg, rgba(212,175,55,0.05), rgba(179,0,0,0.05));
-    opacity:0;
-    transition:opacity 0.3s ease;
-    pointer-events:none;
-}
-
-.dispositivo-card.selected{
-    border-color:var(--dourado);
-    transform:translateY(-5px);
-    box-shadow:0 8px 25px var(--shadow-card);
-}
-
-.dispositivo-card.selected::before{
-    opacity:1;
-}
-
-.dispositivo-card:hover{
-    transform:translateY(-8px) scale(1.02);
-    border-color:var(--vermelho-hover);
-    box-shadow:0 8px 30px var(--shadow-card);
-}
-
-.dispositivo-card h3{
-    color:var(--dourado);
-    font-size:1.6rem;
-    margin-bottom:14px;
-}
-
-.dispositivo-card .preco-dispositivo{
-    font-size:1.8rem;
-    font-weight:bold;
-    color:var(--texto);
-    margin-bottom:10px;
-}
-
-.dispositivo-card .periodo{
-    color:var(--texto-terciario);
-    font-size:0.95rem;
+.logo-img:hover {
+    transform: scale(1.05);
 }
 
 /* ==================================================
-   SEÇÃO DE PLANOS
+   TIPOGRAFIA
 ================================================== */
 
-.planos{
-    background:var(--preto);
-    text-align:center;
+.titulo {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 16px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    animation: fadeInUp 0.8s ease;
 }
 
-.planos-grid{
-    max-width:1100px;
-    margin:40px auto 0;
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
-    gap:24px;
+.titulo span {
+    color: var(--dourado);
+    background: linear-gradient(135deg, var(--dourado), var(--dourado-claro));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-.plano-item{
-    background:linear-gradient(180deg, var(--preto-sec), var(--preto-card));
-    border:2px solid var(--border-card);
-    border-radius:18px;
-    padding:28px 24px;
-    text-align:center;
-    transition:all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    position:relative;
-    overflow:hidden;
+.subtexto {
+    max-width: 700px;
+    margin: 0 auto 50px;
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    color: var(--texto-sec);
+    line-height: 1.6;
+    animation: fadeInUp 0.8s ease 0.2s both;
 }
 
-.plano-item::before{
-    content:'';
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:linear-gradient(135deg, rgba(212,175,55,0.05), rgba(179,0,0,0.05));
-    opacity:0;
-    transition:opacity 0.3s ease;
-    pointer-events:none;
+/* ==================================================
+   ANIMAÇÕES
+================================================== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.plano-item:hover{
-    transform:translateY(-8px) scale(1.02);
-    border-color:var(--vermelho-hover);
-    box-shadow:0 8px 30px var(--shadow-card);
+@keyframes pulseWhatsapp {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5), 0 12px 50px rgba(37, 211, 102, 0.3);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6), 0 15px 60px rgba(37, 211, 102, 0.4);
+    }
 }
 
-.plano-item:hover::before{
-    opacity:1;
+/* ==================================================
+   PLANOS
+================================================== */
+
+.planos-section {
+    padding: 40px 16px 80px;
 }
 
-.plano-header{
-    margin-bottom:20px;
+.planos-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 28px;
+    padding: 0 8px;
 }
 
-.plano-duracao{
-    font-size:1.4rem;
-    font-weight:600;
-    color:var(--dourado);
-    margin-bottom:8px;
+.plano-item {
+    background: linear-gradient(180deg, #0f0f10 0%, #050505 100%);
+    border: 2px solid var(--border-card);
+    border-radius: 20px;
+    padding: 0;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
-.plano-preco{
-    font-size:2rem;
-    font-weight:bold;
-    color:var(--texto);
-    margin-bottom:5px;
+.plano-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.03), rgba(179, 0, 0, 0.03));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
 }
 
-.plano-preco-mensal{
-    font-size:0.9rem;
-    color:var(--texto-terciario);
-    margin-bottom:10px;
+.plano-item:hover {
+    transform: translateY(-8px);
+    border-color: var(--dourado);
+    box-shadow: 0 12px 40px rgba(212, 175, 55, 0.25);
 }
 
-.plano-preco-avista{
-    background:linear-gradient(135deg, rgba(37,211,102,0.2), rgba(30,190,93,0.2));
-    border:1px solid var(--verde-whats);
-    border-radius:8px;
-    padding:8px 12px;
-    margin:10px 0;
+.plano-item:hover::before {
+    opacity: 1;
 }
 
-.plano-preco-avista .label{
-    font-size:0.85rem;
-    color:var(--verde-whats);
-    display:block;
-    margin-bottom:3px;
+.plano-badge {
+    background: linear-gradient(135deg, var(--dourado) 0%, var(--dourado-claro) 100%);
+    color: var(--preto);
+    padding: 12px 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-align: center;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
-.plano-preco-avista .valor{
-    font-size:1.5rem;
-    font-weight:bold;
-    color:var(--texto);
+.plano-header {
+    padding: 32px 28px 24px;
 }
 
-.plano-economia{
-    font-size:0.9rem;
-    color:var(--verde-whats);
-    font-weight:600;
-    margin-top:8px;
+.plano-duracao {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dourado);
+    margin-bottom: 16px;
+    letter-spacing: -0.3px;
 }
 
-.plano-beneficios{
-    list-style:none;
-    margin-bottom:25px;
+.plano-preco {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--texto);
+    margin-bottom: 8px;
+    letter-spacing: -1px;
 }
 
-.plano-beneficios li{
-    margin-bottom:8px;
-    color:var(--texto-sec);
-    font-size:0.95rem;
+.plano-preco-mensal {
+    font-size: 0.95rem;
+    color: var(--texto-terciario);
+    margin-bottom: 16px;
 }
 
-.plano-beneficios li::before{
-    content:"✓ ";
-    color:var(--dourado);
-    font-weight:bold;
+.plano-preco-avista {
+    background: linear-gradient(135deg, rgba(37, 211, 102, 0.15), rgba(30, 190, 93, 0.15));
+    border: 2px solid var(--verde-whats);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin: 16px 0;
+}
+
+.plano-preco-avista .label {
+    font-size: 0.85rem;
+    color: var(--verde-whats);
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.plano-preco-avista .valor {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--texto);
+    letter-spacing: -0.5px;
+}
+
+.plano-economia {
+    font-size: 0.95rem;
+    color: var(--verde-whats);
+    font-weight: 700;
+    margin-top: 12px;
+}
+
+.plano-beneficios {
+    list-style: none;
+    padding: 0 28px 28px;
+    margin: 0;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.plano-beneficios li {
+    margin-bottom: 12px;
+    color: var(--texto-sec);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    padding-left: 8px;
+}
+
+.plano-beneficios li::before {
+    content: "✓ ";
+    color: var(--dourado);
+    font-weight: bold;
+    margin-right: 8px;
 }
 
 /* ==================================================
    BOTÃO ASSINAR
 ================================================== */
 
-.btn-assinar{
-    width:100%;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:12px;
-    background:linear-gradient(135deg, var(--vermelho), var(--vermelho-hover));
-    color:#fff !important;
-    padding:16px 24px;
-    border-radius:14px;
-    font-weight:700;
-    text-decoration:none !important;
-    border:none;
-    cursor:pointer;
-    font-size:1rem;
-    box-shadow:
-        0 4px 15px rgba(179,0,0,.4),
-        0 8px 30px rgba(179,0,0,.2);
-    transition:all 0.3s ease;
+.btn-assinar {
+    width: calc(100% - 56px);
+    margin: 0 28px 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--vermelho) 0%, var(--vermelho-hover) 100%);
+    color: #fff !important;
+    padding: 18px 32px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(179, 0, 0, 0.4);
+    transition: all 0.3s ease;
 }
 
-.btn-assinar:hover{
-    transform:translateY(-3px) scale(1.03);
-    box-shadow:
-        0 6px 20px rgba(255,0,0,.6),
-        0 12px 40px rgba(255,0,0,.3);
+.btn-assinar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(255, 0, 0, 0.6);
+    background: linear-gradient(135deg, var(--vermelho-hover) 0%, #cc0000 100%);
 }
 
-.btn-assinar:active{
-    transform:translateY(-1px) scale(0.98);
+.btn-assinar:active {
+    transform: translateY(0);
+}
+
+/* ==================================================
+   BOTÃO FLUTUANTE WHATSAPP
+================================================== */
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 65px;
+    height: 65px;
+    background: linear-gradient(135deg, var(--verde-whats) 0%, var(--verde-whats-hover) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5), 0 12px 50px rgba(37, 211, 102, 0.3);
+    z-index: 9999;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    animation: pulseWhatsapp 2s ease-in-out infinite;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.7), 0 15px 60px rgba(37, 211, 102, 0.4);
+    animation: none;
+}
+
+.whatsapp-float:active {
+    transform: scale(0.95);
+}
+
+.whatsapp-icon {
+    font-size: 32px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 /* ==================================================
    FOOTER
 ================================================== */
 
-footer{
-    background:var(--preto);
-    padding:30px 16px;
-    text-align:center;
-    color:var(--texto-terciario);
-    font-size:0.9rem;
-    border-top:1px solid rgba(255,255,255,0.1);
+.footer-section {
+    background: var(--preto);
+    padding: 40px 16px;
+    text-align: center;
+    color: var(--texto-terciario);
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-footer p{
-    margin:5px 0;
+.footer-section p {
+    margin: 6px 0;
 }
 
 /* ==================================================
    RESPONSIVO
 ================================================== */
 
-@media(max-width:768px){
-    .dispositivos-container{
-        flex-direction:column;
-        max-width:400px;
+@media (max-width: 1024px) {
+    .planos-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
     }
     
-    .planos-grid{
-        grid-template-columns:1fr;
-        max-width:400px;
+    .logo-img {
+        width: 150px;
+        max-width: 70%;
     }
     
-    section{
-        padding:50px 16px;
+    .planos-grid {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        margin: 0 auto;
+        gap: 20px;
+        padding: 0;
+    }
+    
+    .planos-section {
+        padding: 40px 16px 60px;
+    }
+    
+    .logo-section {
+        padding: 30px 16px 20px;
+    }
+    
+    .titulo {
+        font-size: 1.8rem;
+    }
+    
+    .plano-preco {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 12px;
+    }
+    
+    .logo-img {
+        width: 130px;
+        max-width: 65%;
+    }
+    
+    .logo-section {
+        padding: 25px 16px 15px;
+    }
+    
+    .plano-item {
+        border-radius: 16px;
+    }
+    
+    .plano-header {
+        padding: 24px 20px 20px;
+    }
+    
+    .plano-beneficios {
+        padding: 0 20px 20px;
+    }
+    
+    .btn-assinar {
+        width: calc(100% - 40px);
+        margin: 0 20px 20px;
+        padding: 16px 24px;
+        font-size: 0.9rem;
+    }
+    
+    .planos-grid {
+        padding: 0 4px;
+        gap: 16px;
+    }
+    
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .whatsapp-icon {
+        font-size: 26px;
     }
 }
 
@@ -434,189 +487,163 @@ footer p{
 <!-- ================================================== -->
 <!-- LOGOTIPO                                           -->
 <!-- ================================================== -->
-<section class="logo">
-<div class="container">
-    <div style="font-size: 2.5rem; font-weight: 800; color: var(--dourado); text-shadow: 0 0 30px rgba(212,175,55,0.5);">
-        MaxTV <span style="color: var(--vermelho);">PRO</span>
+<section class="logo-section">
+    <div class="container">
+        <img src="icon/logo.png" alt="MaxTV Pro" class="logo-img">
     </div>
-</div>
-</section>
-
-<!-- ================================================== -->
-<!-- ESCOLHA DE DISPOSITIVOS                            -->
-<!-- ================================================== -->
-<section class="dispositivos-section">
-<div class="container">
-    <h1 class="titulo">
-        Escolha Quantos <span>Dispositivos</span>
-    </h1>
-    
-    <p class="subtexto">
-        Selecione a quantidade de dispositivos que você deseja usar simultaneamente
-    </p>
-
-    <div class="dispositivos-container">
-        <div class="dispositivo-card selected" onclick="selectDevice(1)" id="device-1">
-            <h3>📱 1 Dispositivo</h3>
-            <div class="preco-dispositivo">A partir de R$ 19,99</div>
-            <div class="periodo">por mês</div>
-        </div>
-
-        <div class="dispositivo-card" onclick="selectDevice(2)" id="device-2">
-            <h3>📱📱 2 Dispositivos</h3>
-            <div class="preco-dispositivo">A partir de R$ 39,98</div>
-            <div class="periodo">por mês</div>
-        </div>
-    </div>
-</div>
 </section>
 
 <!-- ================================================== -->
 <!-- PLANOS DE ASSINATURA                              -->
 <!-- ================================================== -->
-<section class="planos">
-<div class="container">
-    <h2 class="titulo">
-        Escolha o <span>Período</span>
-    </h2>
-    
-    <p class="subtexto">
-        Planos com descontos progressivos para economizar ainda mais
-    </p>
+<section class="planos-section">
+    <div class="container">
+        <h1 class="titulo">
+            Escolha Seu <span>Plano</span>
+        </h1>
+        
+        <p class="subtexto">
+            Selecione o período e quantidade de dispositivos ideal para você
+        </p>
 
-    <div class="planos-grid" id="planos-container">
-        <!-- Os planos serão inseridos dinamicamente via JavaScript -->
+        <div class="planos-grid" id="planos-container">
+            <!-- Os planos serão inseridos aqui via JavaScript -->
+        </div>
     </div>
-</div>
 </section>
 
 <!-- ================================================== -->
 <!-- FOOTER                                            -->
 <!-- ================================================== -->
-<footer>
+<footer class="footer-section">
     <p>©️ 2025 • MaxTV Pro • Todos os direitos reservados</p>
-    <p style="margin-top:10px; font-size:0.85rem;">
+    <p style="margin-top: 10px; font-size: 0.85rem;">
         IPTV Premium com mais de 10.000 clientes satisfeitos
     </p>
 </footer>
+
+<!-- ================================================== -->
+<!-- BOTÃO FLUTUANTE WHATSAPP                          -->
+<!-- ================================================== -->
+<a 
+    href="https://wa.me/5541997043607?text=Olá!%20Tenho%20dúvidas%20sobre%20os%20planos%20MaxTV%20Pro."
+    target="_blank"
+    rel="noopener noreferrer"
+    class="whatsapp-float"
+    aria-label="Fale conosco no WhatsApp"
+>
+    <span class="whatsapp-icon">💬</span>
+</a>
 
 <!-- ================================================== -->
 <!-- JAVASCRIPT                                        -->
 <!-- ================================================== -->
 <script>
 // ============================================
-// CONFIGURAÇÃO DOS PLANOS E PREÇOS
+// DADOS DOS PLANOS
 // ============================================
 
-const planos = {
-    1: { // 1 dispositivo
-        planos: [
-            {
-                duracao: "30 Dias",
-                dias: 30,
-                preco: 19.99,
-                precoAvista: null,
-                economia: null,
-                link: "https://ggcheckout.app/checkout/v2/Pis4HsvYCsHZC00Ewfy7"
-            },
-            {
-                duracao: "90 Dias",
-                dias: 90,
-                preco: 59.98,
-                precoAvista: null,
-                economia: null,
-                link: "https://ggcheckout.app/checkout/v2/4sSJinT0no9N6JRoPewd"
-            },
-            {
-                duracao: "180 Dias",
-                dias: 180,
-                preco: 119.94,
-                precoAvista: 107.95,
-                economia: "10% OFF",
-                link: "https://ggcheckout.app/checkout/v2/iUVsV2w3ru7Y1NM5rcyc"
-            },
-            {
-                duracao: "270 Dias",
-                dias: 270,
-                preco: 179.91,
-                precoAvista: 156.52,
-                economia: "13% OFF",
-                link: "https://ggcheckout.app/checkout/v2/5s3XekSreE3BSjaaSdNE"
-            },
-            {
-                duracao: "360 Dias",
-                dias: 360,
-                preco: 239.88,
-                precoAvista: 191.90,
-                economia: "20% OFF",
-                link: "https://ggcheckout.app/checkout/v2/q6SXzFz4AVOE9gTbme7z"
-            }
-        ]
+const todosOsPlanos = [
+    // 30 DIAS
+    {
+        duracao: "30 Dias",
+        dias: 30,
+        dispositivos: 1,
+        preco: 19.99,
+        precoAvista: null,
+        economia: null,
+        link: "https://ggcheckout.app/checkout/v2/Pis4HsvYCsHZC00Ewfy7"
     },
-    2: { // 2 dispositivos
-        planos: [
-            {
-                duracao: "30 Dias",
-                dias: 30,
-                preco: 39.98,
-                precoAvista: null,
-                economia: null,
-                link: "https://ggcheckout.app/checkout/v2/v7DUPxVfvvMxBYTx0BKM"
-            },
-            {
-                duracao: "90 Dias",
-                dias: 90,
-                preco: 119.94,
-                precoAvista: null,
-                economia: null,
-                link: "https://ggcheckout.app/checkout/v2/9RDOqNeO95bnkgxELf6G"
-            },
-            {
-                duracao: "180 Dias",
-                dias: 180,
-                preco: 239.88,
-                precoAvista: 225.49,
-                economia: "6% OFF",
-                link: "https://ggcheckout.app/checkout/v2/Ar76hWe0TSyENUlighUI"
-            },
-            {
-                duracao: "270 Dias",
-                dias: 270,
-                preco: 359.82,
-                precoAvista: 316.64,
-                economia: "12% OFF",
-                link: "https://ggcheckout.app/checkout/v2/Lo91WEsvoxeOAf9ZRW59"
-            },
-            {
-                duracao: "360 Dias",
-                dias: 360,
-                preco: 479.76,
-                precoAvista: 388.81,
-                economia: "20% OFF",
-                link: "https://ggcheckout.app/checkout/v2/TRlqpA2IuE89Bltbdaxh"
-            }
-        ]
+    {
+        duracao: "30 Dias",
+        dias: 30,
+        dispositivos: 2,
+        preco: 39.98,
+        precoAvista: null,
+        economia: null,
+        link: "https://ggcheckout.app/checkout/v2/v7DUPxVfvvMxBYTx0BKM"
+    },
+    // 90 DIAS
+    {
+        duracao: "90 Dias",
+        dias: 90,
+        dispositivos: 1,
+        preco: 59.98,
+        precoAvista: null,
+        economia: null,
+        link: "https://ggcheckout.app/checkout/v2/4sSJinT0no9N6JRoPewd"
+    },
+    {
+        duracao: "90 Dias",
+        dias: 90,
+        dispositivos: 2,
+        preco: 119.94,
+        precoAvista: null,
+        economia: null,
+        link: "https://ggcheckout.app/checkout/v2/9RDOqNeO95bnkgxELf6G"
+    },
+    // 180 DIAS
+    {
+        duracao: "180 Dias",
+        dias: 180,
+        dispositivos: 1,
+        preco: 119.94,
+        precoAvista: 107.95,
+        economia: "10% OFF",
+        link: "https://ggcheckout.app/checkout/v2/iUVsV2w3ru7Y1NM5rcyc"
+    },
+    {
+        duracao: "180 Dias",
+        dias: 180,
+        dispositivos: 2,
+        preco: 239.88,
+        precoAvista: 225.49,
+        economia: "6% OFF",
+        link: "https://ggcheckout.app/checkout/v2/Ar76hWe0TSyENUlighUI"
+    },
+    // 270 DIAS
+    {
+        duracao: "270 Dias",
+        dias: 270,
+        dispositivos: 1,
+        preco: 179.91,
+        precoAvista: 156.52,
+        economia: "13% OFF",
+        link: "https://ggcheckout.app/checkout/v2/5s3XekSreE3BSjaaSdNE"
+    },
+    {
+        duracao: "270 Dias",
+        dias: 270,
+        dispositivos: 2,
+        preco: 359.82,
+        precoAvista: 316.64,
+        economia: "12% OFF",
+        link: "https://ggcheckout.app/checkout/v2/Lo91WEsvoxeOAf9ZRW59"
+    },
+    // 360 DIAS
+    {
+        duracao: "360 Dias",
+        dias: 360,
+        dispositivos: 1,
+        preco: 239.88,
+        precoAvista: 191.90,
+        economia: "20% OFF",
+        link: "https://ggcheckout.app/checkout/v2/q6SXzFz4AVOE9gTbme7z"
+    },
+    {
+        duracao: "360 Dias",
+        dias: 360,
+        dispositivos: 2,
+        preco: 479.76,
+        precoAvista: 388.81,
+        economia: "20% OFF",
+        link: "https://ggcheckout.app/checkout/v2/TRlqpA2IuE89Bltbdaxh"
     }
-};
-
-let selectedDevices = 1; // Padrão: 1 dispositivo selecionado
+];
 
 // ============================================
 // FUNÇÕES
 // ============================================
-
-function selectDevice(devices) {
-    // Remove seleção anterior
-    document.querySelectorAll('.dispositivo-card').forEach(card => {
-        card.classList.remove('selected');
-    });
-    
-    // Adiciona seleção ao dispositivo clicado
-    document.getElementById(`device-${devices}`).classList.add('selected');
-    
-    selectedDevices = devices;
-    renderPlanos();
-}
 
 function formatPreco(valor) {
     return valor.toFixed(2).replace('.', ',');
@@ -629,26 +656,26 @@ function calcularPrecoMensal(precoTotal, dias) {
 
 function renderPlanos() {
     const container = document.getElementById('planos-container');
-    const devicePlanos = planos[selectedDevices].planos;
     
-    container.innerHTML = '';
-    
-    devicePlanos.forEach(plano => {
+    todosOsPlanos.forEach(plano => {
+        const precoMensal = calcularPrecoMensal(plano.preco, plano.dias);
+        const economiaValor = plano.precoAvista ? plano.preco - plano.precoAvista : 0;
+        
         const planoElement = document.createElement('div');
         planoElement.className = 'plano-item';
         
-        const precoMensal = calcularPrecoMensal(plano.preco, plano.dias);
-        
         let htmlContent = `
+            <div class="plano-badge">
+                ${plano.dispositivos === 1 ? '📱 1 Dispositivo' : '📱📱 2 Dispositivos'}
+            </div>
+            
             <div class="plano-header">
                 <div class="plano-duracao">${plano.duracao}</div>
                 <div class="plano-preco">R$ ${formatPreco(plano.preco)}</div>
                 <div class="plano-preco-mensal">R$ ${formatPreco(precoMensal)}/mês</div>
         `;
         
-        // Se houver preço à vista, adiciona destaque
         if (plano.precoAvista) {
-            const economiaValor = plano.preco - plano.precoAvista;
             htmlContent += `
                 <div class="plano-preco-avista">
                     <span class="label">💰 Pagamento à vista no PIX</span>
@@ -663,7 +690,7 @@ function renderPlanos() {
             
             <ul class="plano-beneficios">
                 <li>Acesso completo ao catálogo</li>
-                <li>${selectedDevices} dispositivo${selectedDevices > 1 ? 's' : ''} simultâneo${selectedDevices > 1 ? 's' : ''}</li>
+                <li>${plano.dispositivos} dispositivo${plano.dispositivos > 1 ? 's' : ''} simultâneo${plano.dispositivos > 1 ? 's' : ''}</li>
                 <li>Qualidade HD e 4K</li>
                 <li>Suporte técnico incluído</li>
                 <li>Sem permanência</li>
@@ -684,11 +711,11 @@ function renderPlanos() {
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Selecionar 1 dispositivo por padrão
-    selectDevice(1);
+    renderPlanos();
 });
 
 </script>
 
 </body>
 </html>
+
