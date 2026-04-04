@@ -1,0 +1,30 @@
+# Arquivos da Roleta MaxTV Pro
+
+## NOVOS ARQUIVOS - Copie estes para o repositório clonado:
+
+### Frontend - Firebase
+frontend/src/firebase/config.js
+frontend/src/firebase/AuthContext.js
+
+### Frontend - Páginas
+frontend/src/pages/Auth.jsx
+frontend/src/pages/Auth.css
+frontend/src/pages/Roleta.jsx
+frontend/src/pages/Roleta.css
+
+### Backend - Models e Routes
+backend/models/roleta.py
+backend/routes/roleta.py
+backend/scripts/create_admin.py
+
+### Dependências
+frontend/yarn.lock
+
+## ARQUIVOS MODIFICADOS - Substitua estes no repositório:
+
+frontend/src/App.js
+frontend/package.json
+backend/server.py
+
+## OUTROS ARQUIVOS (Opcionais):
+assinatura-maxtv.html (HTML standalone da página de assinatura)
