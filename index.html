@@ -12,28 +12,27 @@
 <meta name="keywords" content="IPTV assinatura, MaxTV Pro planos, IPTV Brasil, TV online">
 
 <!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📺</text></svg>">
+<link rel="icon" type="image/png" href="icon/logo.png">
 
 <style>
 /* ==================================================
-   VARIÁVEIS E RESET
+   VARIÁVEIS E RESET - PADRÃO VERDE
 ================================================== */
 
 :root {
     --preto: #000000;
     --preto-sec: #0b0b0b;
     --preto-card: #050505;
-    --vermelho: #b30000;
-    --vermelho-hover: #ff0000;
-    --dourado: #d4af37;
-    --dourado-claro: #ffd700;
+    --verde: #00d900;
+    --verde-hover: #00ff00;
+    --verde-neon: #0bff0b;
     --texto: #ffffff;
     --texto-sec: #cccccc;
     --texto-terciario: #999999;
     --verde-whats: #25d366;
     --verde-whats-hover: #1ebe5d;
-    --border-card: rgba(255, 0, 0, 0.45);
-    --shadow-card: rgba(255, 0, 0, 0.35);
+    --border-card: rgba(0, 255, 0, 0.45);
+    --shadow-card: rgba(0, 255, 0, 0.35);
 }
 
 * {
@@ -78,6 +77,7 @@ body {
 .logo-section {
     padding: 60px 16px 40px;
     text-align: center;
+    background: transparent;
 }
 
 .logo-img {
@@ -86,12 +86,22 @@ body {
     height: auto;
     display: block;
     margin: 0 auto;
-    filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.4));
+    filter: drop-shadow(0 0 25px rgba(0, 217, 0, 0.7)) drop-shadow(0 0 15px rgba(11, 255, 11, 0.5));
     transition: transform 0.3s ease;
+    animation: glowPulse 3s ease-in-out infinite;
 }
 
 .logo-img:hover {
     transform: scale(1.05);
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        filter: drop-shadow(0 0 25px rgba(0, 217, 0, 0.7)) drop-shadow(0 0 15px rgba(11, 255, 11, 0.5));
+    }
+    50% {
+        filter: drop-shadow(0 0 40px rgba(0, 217, 0, 1)) drop-shadow(0 0 25px rgba(11, 255, 11, 0.8));
+    }
 }
 
 /* ==================================================
@@ -107,8 +117,8 @@ body {
 }
 
 .titulo span {
-    color: var(--dourado);
-    background: linear-gradient(135deg, var(--dourado), var(--dourado-claro));
+    color: var(--verde-neon);
+    background: linear-gradient(135deg, var(--verde), var(--verde-neon));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -186,7 +196,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.03), rgba(179, 0, 0, 0.03));
+    background: linear-gradient(135deg, rgba(0, 255, 0, 0.05), rgba(0, 217, 0, 0.05));
     opacity: 0;
     transition: opacity 0.4s ease;
     pointer-events: none;
@@ -194,8 +204,8 @@ body {
 
 .plano-item:hover {
     transform: translateY(-8px);
-    border-color: var(--dourado);
-    box-shadow: 0 12px 40px rgba(212, 175, 55, 0.25);
+    border-color: var(--verde-neon);
+    box-shadow: 0 12px 40px rgba(0, 255, 0, 0.4);
 }
 
 .plano-item:hover::before {
@@ -203,8 +213,8 @@ body {
 }
 
 .plano-badge {
-    background: linear-gradient(135deg, var(--dourado) 0%, var(--dourado-claro) 100%);
-    color: var(--preto);
+    background: linear-gradient(135deg, var(--verde) 0%, var(--verde-neon) 100%);
+    color: #000;
     padding: 12px 20px;
     font-weight: 700;
     font-size: 0.9rem;
@@ -220,7 +230,7 @@ body {
 .plano-duracao {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--dourado);
+    color: var(--verde-neon);
     margin-bottom: 16px;
     letter-spacing: -0.3px;
 }
@@ -240,8 +250,8 @@ body {
 }
 
 .plano-preco-avista {
-    background: linear-gradient(135deg, rgba(37, 211, 102, 0.15), rgba(30, 190, 93, 0.15));
-    border: 2px solid var(--verde-whats);
+    background: linear-gradient(135deg, rgba(0, 217, 0, 0.15), rgba(0, 255, 0, 0.1));
+    border: 2px solid var(--verde);
     border-radius: 12px;
     padding: 14px 16px;
     margin: 16px 0;
@@ -249,7 +259,7 @@ body {
 
 .plano-preco-avista .label {
     font-size: 0.85rem;
-    color: var(--verde-whats);
+    color: var(--verde-neon);
     display: block;
     margin-bottom: 6px;
     font-weight: 600;
@@ -264,7 +274,7 @@ body {
 
 .plano-economia {
     font-size: 0.95rem;
-    color: var(--verde-whats);
+    color: var(--verde-neon);
     font-weight: 700;
     margin-top: 12px;
 }
@@ -287,7 +297,7 @@ body {
 
 .plano-beneficios li::before {
     content: "✓ ";
-    color: var(--dourado);
+    color: var(--verde-neon);
     font-weight: bold;
     margin-right: 8px;
 }
@@ -303,8 +313,8 @@ body {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    background: linear-gradient(135deg, var(--vermelho) 0%, var(--vermelho-hover) 100%);
-    color: #fff !important;
+    background: linear-gradient(135deg, var(--verde) 0%, var(--verde-neon) 100%);
+    color: #000 !important;
     padding: 18px 32px;
     border-radius: 12px;
     font-weight: 700;
@@ -314,14 +324,14 @@ body {
     letter-spacing: 0.5px;
     border: none;
     cursor: pointer;
-    box-shadow: 0 6px 20px rgba(179, 0, 0, 0.4);
+    box-shadow: 0 6px 20px rgba(0, 255, 0, 0.4);
     transition: all 0.3s ease;
 }
 
 .btn-assinar:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(255, 0, 0, 0.6);
-    background: linear-gradient(135deg, var(--vermelho-hover) 0%, #cc0000 100%);
+    box-shadow: 0 8px 30px rgba(0, 255, 0, 0.6);
+    background: linear-gradient(135deg, var(--verde-neon) 0%, var(--verde-hover) 100%);
 }
 
 .btn-assinar:active {
@@ -376,7 +386,7 @@ body {
     text-align: center;
     color: var(--texto-terciario);
     font-size: 0.9rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(0, 255, 0, 0.2);
 }
 
 .footer-section p {
@@ -489,7 +499,7 @@ body {
 <!-- ================================================== -->
 <section class="logo-section">
     <div class="container">
-        <img src="icon/logo.PNG" alt="MaxTV Pro" class="logo-img">
+        <img src="icon/logo.png" alt="MaxTV Pro" class="logo-img">
     </div>
 </section>
 
@@ -540,7 +550,7 @@ body {
 <!-- ================================================== -->
 <script>
 // ============================================
-// DADOS DOS PLANOS
+// DADOS DOS PLANOS - NOVA TABELA
 // ============================================
 
 const todosOsPlanos = [
@@ -549,7 +559,7 @@ const todosOsPlanos = [
         duracao: "30 Dias",
         dias: 30,
         dispositivos: 1,
-        preco: 19.99,
+        preco: 29.99,
         precoAvista: null,
         economia: null,
         link: "https://ggcheckout.app/checkout/v2/Pis4HsvYCsHZC00Ewfy7"
@@ -558,7 +568,7 @@ const todosOsPlanos = [
         duracao: "30 Dias",
         dias: 30,
         dispositivos: 2,
-        preco: 39.98,
+        preco: 49.99,
         precoAvista: null,
         economia: null,
         link: "https://ggcheckout.app/checkout/v2/v7DUPxVfvvMxBYTx0BKM"
@@ -568,18 +578,18 @@ const todosOsPlanos = [
         duracao: "90 Dias",
         dias: 90,
         dispositivos: 1,
-        preco: 59.98,
-        precoAvista: null,
-        economia: null,
+        preco: 89.97,
+        precoAvista: 85.47,
+        economia: "5% OFF",
         link: "https://ggcheckout.app/checkout/v2/4sSJinT0no9N6JRoPewd"
     },
     {
         duracao: "90 Dias",
         dias: 90,
         dispositivos: 2,
-        preco: 119.94,
-        precoAvista: null,
-        economia: null,
+        preco: 149.97,
+        precoAvista: 139.47,
+        economia: "7% OFF",
         link: "https://ggcheckout.app/checkout/v2/9RDOqNeO95bnkgxELf6G"
     },
     // 180 DIAS
@@ -587,18 +597,18 @@ const todosOsPlanos = [
         duracao: "180 Dias",
         dias: 180,
         dispositivos: 1,
-        preco: 119.94,
-        precoAvista: 107.95,
-        economia: "10% OFF",
+        preco: 179.94,
+        precoAvista: 165.54,
+        economia: "8% OFF",
         link: "https://ggcheckout.app/checkout/v2/iUVsV2w3ru7Y1NM5rcyc"
     },
     {
         duracao: "180 Dias",
         dias: 180,
         dispositivos: 2,
-        preco: 239.88,
-        precoAvista: 225.49,
-        economia: "6% OFF",
+        preco: 299.94,
+        precoAvista: 269.95,
+        economia: "10% OFF",
         link: "https://ggcheckout.app/checkout/v2/Ar76hWe0TSyENUlighUI"
     },
     // 270 DIAS
@@ -606,18 +616,18 @@ const todosOsPlanos = [
         duracao: "270 Dias",
         dias: 270,
         dispositivos: 1,
-        preco: 179.91,
-        precoAvista: 156.52,
-        economia: "13% OFF",
+        preco: 269.91,
+        precoAvista: 240.22,
+        economia: "11% OFF",
         link: "https://ggcheckout.app/checkout/v2/5s3XekSreE3BSjaaSdNE"
     },
     {
         duracao: "270 Dias",
         dias: 270,
         dispositivos: 2,
-        preco: 359.82,
-        precoAvista: 316.64,
-        economia: "12% OFF",
+        preco: 449.91,
+        precoAvista: 391.42,
+        economia: "13% OFF",
         link: "https://ggcheckout.app/checkout/v2/Lo91WEsvoxeOAf9ZRW59"
     },
     // 360 DIAS
@@ -625,18 +635,18 @@ const todosOsPlanos = [
         duracao: "360 Dias",
         dias: 360,
         dispositivos: 1,
-        preco: 239.88,
-        precoAvista: 191.90,
-        economia: "20% OFF",
+        preco: 359.88,
+        precoAvista: 305.90,
+        economia: "15% OFF",
         link: "https://ggcheckout.app/checkout/v2/q6SXzFz4AVOE9gTbme7z"
     },
     {
         duracao: "360 Dias",
         dias: 360,
         dispositivos: 2,
-        preco: 479.76,
-        precoAvista: 388.81,
-        economia: "20% OFF",
+        preco: 599.88,
+        precoAvista: 503.90,
+        economia: "16% OFF",
         link: "https://ggcheckout.app/checkout/v2/TRlqpA2IuE89Bltbdaxh"
     }
 ];
